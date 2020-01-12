@@ -1,4 +1,4 @@
-import { Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, Input} from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { interval, Subscription } from 'rxjs';
 })
 export class GraficoBarraHorizontalComponent implements OnDestroy {
   
-  results: any[] = [
+/*   results: any[] = [
     {
       "name": "Juego 1",
       "value": 20
@@ -25,8 +25,10 @@ export class GraficoBarraHorizontalComponent implements OnDestroy {
       "name": "Juego 4",
       "value": 30
     }
-  ];
+  ]; */
 
+  @Input() results: any[] = [];
+  
   // options
   showXAxis = true;
   showYAxis = true;
@@ -56,7 +58,7 @@ export class GraficoBarraHorizontalComponent implements OnDestroy {
       this.results = [...newResults];
     }, 1500); */
 
-    this.interval$ = interval(1500).subscribe(() => {
+    /* this.interval$ = interval(1500).subscribe(() => {
       console.log('tick');
 
       const newResults = [...this.results];
@@ -66,7 +68,7 @@ export class GraficoBarraHorizontalComponent implements OnDestroy {
       }
 
       this.results = [...newResults];
-    })
+    }) */
 
   }
 
@@ -75,7 +77,7 @@ export class GraficoBarraHorizontalComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.interval$.unsubscribe();
+    //this.interval$.unsubscribe();
   }
 
 }
